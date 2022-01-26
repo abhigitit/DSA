@@ -7,6 +7,10 @@
 Loop throught the array, push elements to the set and simultaneously check if the element is present in the set. Return the elements if its already present
 */
 
+/* TC = O(n)
+SC = O(n)
+*/
+
 #include <bits/stdc++.h>
 #include<vector>
 #include<set>
