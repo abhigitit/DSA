@@ -12,6 +12,9 @@ increment seqindex and break when seqindex reaches the sequence array’s size.
 If it has reached sequence array's size, that implies all the elements are present in the array.
 */
 
+/* Time Complexity = O(n)
+Space Complexity = 0(1)
+*/
 
 #include <bits/stdc++.h>
 #include <vector>
