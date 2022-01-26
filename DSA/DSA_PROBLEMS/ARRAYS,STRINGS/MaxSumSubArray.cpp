@@ -1,13 +1,17 @@
-/* Max Sum SubArray */
+/* Max Sum SubArray 
 
-/* Write a function that takes in non empty array and returns max sum of subarray. Elements of subarray have to be adjacent*/
+ Write a function that takes in non empty array and returns max sum of subarray. Elements of subarray have to be adjacent
 
-/* INPUT = [1,2,3,-9,4,6,0,7,-1]
- max sum of subarray is 4+6+0+7 =17 */
+ INPUT = [1,2,3,-9,4,6,0,7,-1]
+ max sum of subarray is 4+6+0+7 =17 
 
-/*Kadane's Algorithm:
+Kadane's Algorithm:
   At every element, check if the (current element) is the highest or (max sum till then + current element) is the highest.
-  */
+  
+Time Complexity : O(N)
+Sapce Complexity: O(1)
+
+*/
 
 
 #include <bits/stdc++.h>
