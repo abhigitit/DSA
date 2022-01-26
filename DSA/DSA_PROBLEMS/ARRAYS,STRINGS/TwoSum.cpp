@@ -12,6 +12,10 @@ Loop through the array and also keep inserting elements into an unordered set.
 Subtract elements from targetsum and store in another variable and find if the variable is present in the set.
 */
 
+/* TC= O(n)
+SC = O(n)
+*/
+
 //1)Return Elements
 #include <bits/stdc++.h>
 #include<vector>
