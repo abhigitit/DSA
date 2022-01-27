@@ -26,9 +26,10 @@ void postOrderTraversal(Node* root)
     {
         if(root)
         {
-            cout<<root->key<<"\n";
+          
             postOrderTraversal(root->left);
             postOrderTraversal(root->right);
+            cout<<root->key<<"\n";
         }
     }
     
