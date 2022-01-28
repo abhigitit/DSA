@@ -31,6 +31,8 @@ Endianness?
 _Endianness means ordering of bytes.
 _Endianness means that the bytes in computer memory are read in a certain order either from left to right which is big endian or right to left which is little endian.
 
+![](http://4.bp.blogspot.com/_IEmaCFe3y9g/SO3GGEF4UkI/AAAAAAAAAAc/z7waF2Lwg0s/s400/lb.GIF)
+
 
 why is it important?
 _So knowledge of endianness is important when you are reading and writing the data across the network from one system to another.
