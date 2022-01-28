@@ -19,7 +19,7 @@ These are the standard definitons found everywhere on the internet. Let's take a
 
 Imagine Memory as a canvas sheet!
 
-[](url
+
 <img width="852" alt="Screen Shot 2022-01-28 at 9 53 14 AM" src="https://user-images.githubusercontent.com/90536339/151597345-59a8006c-91b1-4544-b134-e62a476ea431.png">
-)
+
 
