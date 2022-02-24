@@ -3,9 +3,7 @@
 
 
 #include <bits/stdc++.h>
-#include <vector>
-#include <math.h> 
-#include <algorithm> 
+
 
 using namespace std;
 void siftUp(int currenIndex,vector<int> &heap);
