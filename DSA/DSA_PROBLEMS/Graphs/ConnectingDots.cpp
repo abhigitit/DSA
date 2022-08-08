@@ -1,4 +1,4 @@
-/*Connecting Dots
+/*Connecting Dots : Coding Ninjas
 Send Feedback
 Gary has a board of size NxM. Each cell in the board is a coloured dot. There exist only 26 colours denoted by uppercase Latin characters (i.e. A,B,...,Z). Now Gary is getting bore and wants to play a game. The key of this game is to find a cycle that contain dots of same colour. Formally, we call a sequence of dots d1, d2, ..., dk a cycle if and only if it meets the following condition:
 1. These k dots are different: if i ≠ j then di is different from dj.
