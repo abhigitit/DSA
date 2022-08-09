@@ -21,6 +21,8 @@ Sample Output :
 
 /*
 Intution: Start numbering the same colors (alphabets) and when we reach already numbered cell, check if the current cell - already numbered cell + 1 >= minimum colors to form cycle.
+TC : O(m*n)
+SC : O(m*n)
 */
 #include<bits/stdc++.h>
 using namespace std;
