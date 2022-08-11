@@ -1,6 +1,8 @@
 /* 
 Leetcode 1293
 
+https://www.youtube.com/watch?v=VPleGcc1nZY&t=1033s&ab_channel=CrackingFAANG
+
 The claim for BFS is that the first time a node is discovered during the traversal, that distance from the source would give us the shortest path.
 
 Shortest path from first cell to last cell in a binary matrix without obstacles is always length of row+ length of column(the Manhattan distance) as we cant go diagonally. 
