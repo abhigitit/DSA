@@ -32,6 +32,88 @@ https://www.youtube.com/watch?v=qNVNoZJFp_g&list=PLFj4kIJmwGu3m30HfYDDufr3PZBfyn
 
 */
 
+#include <bits/stdc++.h>
+using namespace std;
+class Graph {
+    map<int,vector<int>> adj;
+    map<int,int> parent;
+    vector<int> disc;
+     vector<int> low;
+    vector<int> res;
+    vector<bool> visited;
+    int time;
+    int n;
+    public:
+    
+    Graph(int V)
+    {
+        n = V;
+        disc.resize(n,0);
+        low.resize(n,0);
+        visited.resize(n,false);
+        time = 0;
+    }
+    
+    void add_edge(int v,int w)
+    {
+        adj[v].push_back(w);
+        adj[w].push_back(v);
+        parent[v]=-1;
+        parent[w]=-1;
+    }
+   vector<int> criticalConnections() {
+  
+        find_critical_connection(0);
+    
+        return res;
+    }
+    
+    void find_critical_connection(int v)
+    {
+        visited[v]=true;
+        disc[v]=time++;
+        low[v]=disc[v];
+        int child = 0;
+        for(auto av:adj[v])
+        {
+            if(!visited[av])
+            {
+                child++;
+                parent[av]=v;
+                find_critical_connection(av);
+                low[v]=min(low[v],low[av]);
+                if(parent[v]==-1 and child>1)
+                    res.push_back(v);
+                
+                if(parent[v]!=-1 and low[av]>=disc[v])
+                 res.push_back(v);
+            }
+            else if(av != parent[v]) // Back edge; reached else if because its already discovered node but not a parent of current node, that means ancestor.
+                low[v]=min(low[v],disc[av]);
+        }
+    }
+    
+};
+
+int main()
+{
+    Graph g(6);
+    g.add_edge(0,1);
+    g.add_edge(1,2);
+    g.add_edge(2,0);
+    g.add_edge(1,3);
+    g.add_edge(3,4);
+    g.add_edge(4,5);
+    g.add_edge(5,3);
+  
+vector<int> res = g.criticalConnections();
+for(auto i:res)
+{
+    cout<<i<<endl;
+}
+    return 0;
+}
+
 
 
 
