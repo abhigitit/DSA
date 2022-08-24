@@ -1,55 +1,92 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-struct BST{
+
+class BST{
     int val;
     BST* left;
     BST* right;
+    
+    public:
+    BST();
+    BST(int val);
+    BST* insert(BST* root, int val);
+    void inorder(BST* root);
+    bool search_BST(BST* root, int val);
 };
 
-BST* newNode(int data)
+BST::BST()
 {
-    BST* root = new BST();
-    root->val = data;
-    root->left = root->right = nullptr;
-    return root;
+    this->val = 0;
+    left = nullptr;
+    right = nullptr;
 }
 
-BST* insert(BST* root,int data){
+
+BST::BST(int val)
+{
+    this->val = val;
+    left = nullptr;
+    right = nullptr;
+}
+
+BST* BST::insert(BST* root, int val)
+{
     if(!root)
     {
-        root = newNode(data);
-        return root;
+        
+        return new BST(val);
     }
-    if(root->val>=data)
+    
+    if(val>root->val)
     {
-        root->left = insert(root->left,data);
+        
+        root->right = insert(root->right,val);
+        
     }
-    else if(root->val<data)
-    {
-        root->right = insert(root->right,data);
+    
+    else{
+        
+         root->left = insert(root->left,val);
     }
-    return root;
+ 
+   return root;
+    
 }
 
-void printBST(BST* root)
+bool BST::search_BST(BST* root, int val)
+{
+    if(!root) return false;
+    
+    if(root->val == val)
+    return true;
+    
+    else if(root->val <= val)
+        return search_BST(root->right,val);
+    
+    else
+    return search_BST(root->left,val);
+}
+
+void BST::inorder(BST* root)
 {
     if(root)
     {
-        printBST(root->left);
-        cout<<root->val<<endl;
-        printBST(root->right);
+        inorder(root->left);
+        cout<<root->val<<",";
+        inorder(root->right);
     }
 }
 
 int main()
 {
-    BST* root = nullptr;
-    root = newNode(6);
-    root = insert(root,5);
-    root = insert(root,10);
-    root = insert(root,4);
-    root = insert(root,15);
-    printBST(root);
-
-    return 0;
+    BST b, *root = NULL;
+    root = b.insert(root,6);
+    b.insert(root,8);
+    b.insert(root,1);
+    b.insert(root,35);
+    b.insert(root,77);
+    b.insert(root,-9);
+    b.inorder(root);
+    cout<<"\n"<<"searching"<<endl;
+    cout<<b.search_BST(root,7);
 }
