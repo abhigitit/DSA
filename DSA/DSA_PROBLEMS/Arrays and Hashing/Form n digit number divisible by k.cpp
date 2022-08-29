@@ -9,6 +9,7 @@ using namespace std;
 vector<int> res;
 void function_name(int n,int k)
 {
+  if(k>=10 and n==1) return;
 int low = pow(10,n-1);
 int high = pow(10,n);
 low=low+1;
