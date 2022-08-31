@@ -1,0 +1,12 @@
+How to Measure 45 minutes using two identical wires?
+
+How do we measure forty-five minutes using two identical wires, each of which takes an hour to burn? We have matchsticks with us.
+The wires burn non-uniformly. So, for example, the two halves of wire might burn in 10 minutes and 50 minutes respectively.
+
+Intuition: Light up two ends of wire 1 and one end of wire 2.
+As wire 1 is lit up from both ends, it should burn out in 30 min.
+
+After 30 min: Wire 1 is burnt out; Wire 2 has 30 min more.(We cant predict that with the length thats burnt, its known because wire 1 is burnt out)
+Now light up wire 2 from other end so that both ends burn it out in half time which is 15 min.
+
+Total 45 min.
