@@ -12,7 +12,7 @@ https://www.youtube.com/watch?v=f7JOBJIC-NA&ab_channel=NeetCode
 
 TC: O(n^2logn)
 
-n^2 comes from checking all other nodes while on one node and logn comes from min heap.
+n^2 comes from exploring all edges and logn comes from min heap.
 
 */
 
