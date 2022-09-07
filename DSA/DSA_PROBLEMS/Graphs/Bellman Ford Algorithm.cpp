@@ -14,7 +14,10 @@ But it fails in the case of Negative edge weight cycle. However, Bellman Ford ca
 Idea behind Bellman Ford: Relax all the edges. How many times? n-1 times where n is the number of vertices and n-1 would be the max number of edges
 from source to destination.
 
-Why n-1 times? In the worst case, ordering of edges will be such that it takes n-1 times for all the edges to relax.
+Why n-1 times? In the worst case, ordering of edges will be such that it takes n-1 times for all the edges to relax. Consider source to be first index and
+destination to be last index. If there are n nodes, there could be n-1 edges to the destination in the longest path possible where all the other nodes come in between.
+After every relaxation, one of the other n-1 nodes' distance can be updated and needs to be rechecked. SO perform n-1 relaxations so that all the updations happen.
+
 https://www.youtube.com/watch?v=75yC1vbS8S8&ab_channel=takeUforward
 
 Bellman ford algorithm is dynamic programming approach where we explore all the paths and decide which is optimal where as Dijkstras is a greedy algorithm.
