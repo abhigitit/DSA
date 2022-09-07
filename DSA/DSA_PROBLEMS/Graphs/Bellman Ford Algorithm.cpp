@@ -25,6 +25,8 @@ d[v] = d[u] + cost(uv)
 After performing n-1 relaxations, it is guranteed that the distance array is populated with correct shortest distances.
 Then, as the final step, perform one more relaxation and validate if the distance array is changing. If its changing, then we detect a negative edge wt cycle.
 
+https://www.youtube.com/watch?v=24HziTZ8_xo&t=9s&ab_channel=TECHDOSE
+
 */
 
 
