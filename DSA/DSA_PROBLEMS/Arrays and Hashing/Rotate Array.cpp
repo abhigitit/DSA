@@ -10,7 +10,6 @@ class Solution {
 public:
     void rotate(vector<int>& nums, int k) {
         k=k%nums.size();
-        int right = nums.size()-k-1;
         reverse(nums.begin(),nums.end());
         
         reverse_func(0,k-1,nums);
