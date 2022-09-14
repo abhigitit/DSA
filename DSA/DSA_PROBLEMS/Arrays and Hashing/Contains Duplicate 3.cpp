@@ -13,6 +13,7 @@ Suppose we are on number 9 and consider the window has numbers 6,14,9 and t is 4
 Suppose we are on number 9 and consider the window has numbers 14,15,9 and t is 4. Find the lower bound => 9-4 which 5 but the set would have 14,15 and the lower bound would be
 14. If 14 is not less than or equal to 9+4, we dont return true.
 
+https://www.youtube.com/watch?v=N4LtVcQ_rik&ab_channel=CodeforCause
 TC:O(NlogK)
 SC : O(k)
 */
