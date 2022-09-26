@@ -3,7 +3,10 @@
 Minimum Cost For Tickets
 
 https://www.youtube.com/watch?v=HyN5hdD1JU4&ab_channel=KnowledgeCenter
+First ques to ask: Whats the total cost for that day an coming days: Its min(1 day pass + cost from next day, 7 day pass + cost from 8th day from now,
+30 day pass + cost from 31st day from now.)
 
+Solve from back.
 */
 
 class Solution {
