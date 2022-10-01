@@ -4,40 +4,29 @@ Length of the longest subarray whose sum is zero
 
 */
 
-#include <bits/stdc++.h>
-
-using namespace std;
-
-
-
-int len_LSAWS_zero(vector<int> input)
-{
-    int sum =0;
-    int max_len = 0;
-    unordered_map<int,vector<int>> store;
-    for(int i=0;i<input.size();++i)
-    {
-
-        sum+=input[i];
-         if (input[i] == 0 && max_len == 0)
-            max_len = 1;
-        
-        if(store.find(sum)!=store.end())
+class Solution{
+    public:
+    int maxLen(vector<int>&A, int n)
+    {   
+        map<int,vector<int>> cache;
+        int sum=0;
+        int max_len=0;
+        cache[0].push_back(-1);
+        for(int i=0;i<A.size();++i)
         {
-            int j = store[sum][0];
-            int len = i-j;
-            max_len = max(max_len,len);
+            sum+=A[i];
+            
+            if(cache.count(sum))
+            {
+                int least = cache[sum][0];
+                int len = i-least;
+                max_len = max(max_len,len);
+            }
+            else
+            cache[sum].push_back(i);
         }
-        store[sum].push_back(i);
-       
         
+        return max_len;
     }
-    return max_len;
-}
-int main()
-{
-    vector<int> input = { 15, -2, 2, -8, 1, 7, 10, 23 };
-    cout<<len_LSAWS_zero(input);
+};
 
-    return 0;
-}
