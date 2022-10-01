@@ -18,7 +18,7 @@ void insertion_sort(vector<int>& input)
     {
         int hole = i;
         int value = input[i];
-        while(hole>=0 and input[hole-1]>value)
+        while(hole>0 and input[hole-1]>value)
         {
             input[hole]=input[hole-1];
             hole--;
