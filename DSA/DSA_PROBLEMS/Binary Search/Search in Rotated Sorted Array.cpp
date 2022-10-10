@@ -1,7 +1,7 @@
 /*
 Search in Rotated Sorted Array
 
-Intuition: There are 2 sorted parts in roated sorted array. Find the minimum element to find in which sorted part the target lies.
+Intuition: There are 2 sorted parts in roated sorted array. Find the minimum element to seperate two sorted parts and find in which sorted part the target lies.
 Then apply binary search
 
 */
