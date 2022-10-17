@@ -2,6 +2,7 @@
 Isomorphic strings
 https://www.youtube.com/watch?v=7yF-U1hLEqQ&ab_channel=NeetCode
 
+We cant have one char mapping to two different and also two different mapping to same char.
 */
 
 class Solution {
