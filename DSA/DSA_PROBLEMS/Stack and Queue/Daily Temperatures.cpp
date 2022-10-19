@@ -11,24 +11,18 @@ O(N) STC
 class Solution {
 public:
     vector<int> dailyTemperatures(vector<int>& temperatures) {
-      stack<pair<int,int>> mst;
-       vector<int> res(temperatures.size(),0);
+      vector<int> res(temperatures.size(),0);
+        
+        stack<pair<int,int>> st;
         for(int i=0;i<temperatures.size();++i)
         {
-            
-            while(!mst.empty() and temperatures[i]>mst.top().first)
+            while(!st.empty() and temperatures[i]>st.top().first)
             {
-                res[mst.top().second] = i- mst.top().second;
-                mst.pop();
+                int prev_idx = st.top().second;
+                st.pop();
+                res[prev_idx] = i-prev_idx;
             }
-            
-            mst.push({temperatures[i],i});
-        }
-        
-        while(!mst.empty())
-        {
-            res[mst.top().second] = 0;
-            mst.pop();
+            st.push({temperatures[i],i});
         }
         return res;
     }
