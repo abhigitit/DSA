@@ -1,5 +1,6 @@
 /*
 Longest Repeating Character Replacement
+Max Consecutive Ones III
 
 Intuition : Current window size - highest repated character in current = count of remaining characters in the window. If this count equals k, we can afford
 to change them and if this count becomes greater than k, we need to pop from starting of the window.
