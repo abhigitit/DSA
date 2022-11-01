@@ -8,29 +8,31 @@ Intuition : To find the immediate greter element on the right, use stack
 class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
-        stack<int> st;
-      unordered_map<int,int> cache;
-        for(auto i:nums2)
+        unordered_map<int,int> nextGreat;
+        stack<int> monoD;
+        vector<int> res;
+        for(auto& num: nums2)
         {
-            cache[i] = -1;
-        }
-      
-        for(auto i:nums2)
-        {
-            while(!st.empty() and i>st.top())
+            while(!monoD.empty() and num>monoD.top())
             {
-                cache[st.top()] = i;
-                st.pop();
+                nextGreat[monoD.top()] = num;
+                monoD.pop();
             }
-            st.push(i);
+            
+            monoD.push(num);
         }
         
-        for(int i=0;i<nums1.size();++i)
+         while(!monoD.empty())
+         {
+            nextGreat[monoD.top()] = -1;
+             monoD.pop();
+         }
+        
+        for(auto& num: nums1)
         {
-            nums1[i] = cache[nums1[i]];
+            res.push_back(nextGreat[num]);
         }
         
-        return nums1;
-        
+        return res;
     }
 };
