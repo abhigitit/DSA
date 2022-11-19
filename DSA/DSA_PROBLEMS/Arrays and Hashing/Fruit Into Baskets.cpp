@@ -2,6 +2,8 @@
 Fruit Into Baskets
 
 https://www.youtube.com/watch?v=s_zu2dOkq80&ab_channel=NickWhite
+
+Longest Contiguos Subarray of only two numbers
 */
 
 class Solution {
