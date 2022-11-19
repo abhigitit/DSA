@@ -4,6 +4,18 @@ N Queens
 
 https://www.youtube.com/watch?v=Ph95IHmRp5M&ab_channel=NeetCode
 
+We can put the first queen in first row, any column. WE need to maintain which column the first queen was placed. By default every queen will be placed in
+different rows.
+
+What index does positive and negative diagonals belong to?
+
+NEGATIVE diagonal: Moving right and down(increasing row by 1 and increasing col by 1) so row-col = const
+The center negative diagonal is row=cols =>0,0..1,1..2,2
+Other negative diagonals (row-col) will be constant.
+0-1, 1-2, 2-3.. = -1
+
+POSITIVE diagonal: Moving right and up(decreasing row by 1 and increasing col by 1) so row+col = const
+
 */
 
 class Solution {
