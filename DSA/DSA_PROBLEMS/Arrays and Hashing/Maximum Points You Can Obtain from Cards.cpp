@@ -4,6 +4,8 @@ Leetcode: 1423
 
 Intuition : Sliding Window
 https://www.youtube.com/watch?v=TsA4vbtfCvo&ab_channel=NeetCode
+
+Considering elements outside the window.
 TC: O(k)
 */
 class Solution {
