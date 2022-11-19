@@ -7,6 +7,16 @@ Intuition: To find the next/prev immediate greater or lesser, we use monotonic s
 To find the subarrays the curr element is min in, use increasing monotonic stack where we get the elements which are lesser than currently considered(min)
 on its both sides and we use the formula of "num of subarrays = (curr_idx-left_idx)*(right_idx*curr_idx)" and multiply it with the number.
 
+If my current number should be the minimum in the subarray, set boundaries => what is the smallest number than my current number to left and right.
+
+Use monotonic dec stack to find prev greater and next greater
+Whatever number is directly underneath the current number is the prev greater => 10,8,7 = > inside mon dec stack 10,8,7.. for 8 prev greater is 10.
+Next greater element is when we pop.
+
+
+Use monotonic inc stack to find prec smallest and next smallest
+Whatever number is directly underneath the current number is the prev lesser 
+
 https://www.youtube.com/watch?v=yAoN-EQRszk&ab_channel=KacyCodes
 
 
