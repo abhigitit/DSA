@@ -1,41 +1,42 @@
 /*
 Insert Delete GetRandom O(1) 
 Leetcode
+
+O(1) search in array when rand() is assumed to be const
 */
 
-class RandomizedSet {
+
+ class RandomizedSet {
 public:
-    set<int> s;
+map<int,int> mp;
+vector<int> helper;
+int index;
     RandomizedSet() {
-        
+
     }
     
     bool insert(int val) {
-        if(!s.count(val))
-        {
-             s.insert(val);
-            return true;
-        }
-        return false;   
-            
+        if(mp.count(val))
+          return false;
+   
+        helper.push_back(val);
+        mp[val] = helper.size()-1;
+        return true;
     }
     
     bool remove(int val) {
-         if(s.count(val))
-        {
-             s.erase(val);
-             return true;
-        }
-        return false; 
+        if(!mp.count(val))
+          return false;
+        
+        int temp_idx = mp[val];
+        swap(helper[temp_idx],helper[helper.size()-1]);
+        helper.pop_back(); 
+        mp[helper[temp_idx]] = temp_idx;
+        mp.erase(val);
+        return true;
     }
     
     int getRandom() {
-        int idx = rand()%s.size();
-        auto it = s.begin();
-        for (int i = 0; i < idx; i++)
-        {
-            it++;
-        }
-        return *it;
+        return helper[rand()%helper.size()];
     }
 };
