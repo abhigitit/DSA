@@ -27,7 +27,7 @@ public:
         int total = 0;
         for(int i=0;i<boxTypes.size();++i)
         {
-            if(truckSize<=boxTypes[i][0])
+            if(truckSize<=boxTypes[i][0]) // if remaining truck size is less than available boxes, utilize all the truck space and break. its done
             {
                 res+= truckSize*boxTypes[i][1]; 
                 break;
