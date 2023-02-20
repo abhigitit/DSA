@@ -4,6 +4,9 @@
 Matrix DFS
 Unique paths from top left to bottom right. Can move along 0's
 
+TC : 4 power (n*m)
+SC : O(n*m)
+
 */
 
 
