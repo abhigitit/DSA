@@ -1,9 +1,15 @@
 /*
 
+Matriix BFS
+Shortest path from top left to bottom right
+
+
 Shortest Path in Binary Matrix
 1091
 
 8 directions move. BFS = shortest path
+
+TC : O(n*m)
 */
 
 class Solution {
