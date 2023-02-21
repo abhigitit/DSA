@@ -21,16 +21,19 @@ public:
     bool isPalindrome(ListNode* head) {
         return helper(head,head).first;
     }
-    
-    pair<bool,ListNode*> helper(ListNode* left,ListNode* right)
+
+    pair<bool,ListNode*> helper(ListNode* left, ListNode* right)
     {
         if(!right)
-            return make_pair(true,left);
-        
-       pair<bool,ListNode*> ret = helper(left,right->next);
-        bool ret1 = ret.first;
-        ListNode* ret2 = ret.second;
-        bool send = (ret1 and ret2->val==right->val);
-        return make_pair(send,ret2->next);
+            return {true,left};
+        pair<bool,ListNode*> checker = helper(left,right->next);
+        bool value_check = checker.first;
+        ListNode* left_increment = checker.second;
+
+        bool palindrome = checker.first and right->val == left_increment->val;
+
+        return {palindrome,left_increment->next};
+
+
     }
 };
