@@ -1,5 +1,9 @@
 /*
 Remove Linked List Elements
+
+Intuition : Dummy node and point it to where head is pointing because first element might be removed. prev points to dummy and curr points to head.
+when we delete node, no need to update prev and when we do not delete node (i.e it can stay) we update prev.
+
 */
 
 class Solution {
