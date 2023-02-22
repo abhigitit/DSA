@@ -1,5 +1,16 @@
 /*
-BFS - Shortest Length from source to target.cpp
+BFS - Shortest Length from source to target
+
+We need to traverse through all the edges. E<=V square
+TC : O(V^2)
+
+But usually we do not have all full graph of V^2 edges.
+
+We need to visit all vertices in a single path O(V)
+In worst case we need to cover all edges O(E)
+
+TC: O(V+E)
+
 
 */
 
