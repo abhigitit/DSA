@@ -3,6 +3,9 @@ Count of All Paths from source to target
 Print paths from source to target
 
 DFS with backtracking
+
+TC : Suppose N is the average number of choices from each vertex(number of decisions) and the max lenght of path would be V (height of decision tree).
+O(N power V)
 */
 
 #include<bits/stdc++.h>
