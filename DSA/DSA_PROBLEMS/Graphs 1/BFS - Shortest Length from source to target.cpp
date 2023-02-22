@@ -10,7 +10,7 @@ We need to visit all vertices in a single path O(V)
 In worst case we need to cover all edges O(E)
 
 TC: O(V+E)
-
+SC : O(V)
 
 */
 
