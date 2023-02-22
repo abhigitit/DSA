@@ -2,6 +2,8 @@
 /*
 Leetcode 83
 
+Intuition : Should have two elements for compairison so two conditons in while; gather next node, if same -> remove and do not update curr else update curr;
+
 */
 
 class Solution {
