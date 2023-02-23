@@ -3,6 +3,14 @@ COurse Schedule 207
 
 Intuition : Has a cycle
 
+Use a map and mark true false and do not use set to add remove vertices because, if a vertex is removed from set in backtracking, and the next time
+the vertex is visited again, the code is executed again.
+
+With map, the node can be mapped to false but its still there inside map..so when we reach it again, we caan return false for cycle because the
+paths from that node have already been explored.
+
+O(V+E)
+
 */
 class Solution {
 public:
