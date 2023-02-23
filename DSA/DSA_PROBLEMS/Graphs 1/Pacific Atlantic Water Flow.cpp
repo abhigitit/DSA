@@ -1,7 +1,9 @@
 /*
 Pacific Atlantic Water Flow
 
-Intuition : Take two seperate 2D boolean grids one for pacific and atlantic each. Start from the boundary elements which are already into pacific and apply DFS
+Intuition : 
+change problem from cell to reach ocean => ocean to reach cell
+Take two seperate 2D boolean grids one for pacific and atlantic each. Start from the boundary elements which are already into pacific and apply DFS
 and mark all the elements that can flow into pacific. Similarly for atlantic.
 
 Take common elements from both boolean grids.
