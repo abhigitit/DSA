@@ -29,7 +29,7 @@ Time Complexity:
 E.log(E); E in worst case -> V^2
 if E is V^2 -> E* 2logV -> ElogV OR V^2 LogV OR V^2 LogE
 
-Better to write E.log(E)
+Better to write E.logE or ElogV 
 
 log(E) comes from minheap. Max size of min heap could be us adding all the edges assicated with a node as we already saw a node could be added
 multiple time. When we push or pop that will be log(E).
