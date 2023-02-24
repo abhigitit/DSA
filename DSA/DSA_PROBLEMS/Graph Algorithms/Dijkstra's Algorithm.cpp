@@ -27,6 +27,9 @@ multiple paths to it and ofcourse minimum cost will be popped.
 
 Time Complexity:
 E.log(E); E in worst case -> V^2
+if E is V^2 -> E* 2logV -> ElogV OR V^2 LogV OR V^2 LogE
+
+Better to write E.log(E)
 
 log(E) comes from minheap. Max size of min heap could be us adding all the edges assicated with a node as we already saw a node could be added
 multiple time. When we push or pop that will be log(E).
@@ -34,6 +37,8 @@ multiple time. When we push or pop that will be log(E).
 How may time should we pop and push into the min heap? E times
 For all the adges ; We are pushing all the edges into the queue and might 
 pop all of them in worst case. Hence E*logE
+
+
 
 */
 
