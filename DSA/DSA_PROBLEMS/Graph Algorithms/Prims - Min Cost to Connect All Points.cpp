@@ -1,5 +1,9 @@
 /*
-Leetcode: 1584
+Prims Algorithm : We connect the entire graph in such a way that the total cost on the edges is minimized. Turn the graph into Asylic undirected graph.
+
+N vertices ; N-1 edges in MST
+Multiple valid solutions for MST
+TC : Look Dijkstras
 
 Its a classic Minimum Spanning Tree problem.
 We use BFS approach to solve this.
