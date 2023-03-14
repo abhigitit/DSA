@@ -1,6 +1,6 @@
 /*
  Find Minimum in Rotated Sorted Array
- Intuition: The element which is lesses than the previous one is the minimum. O(N)
+ Intuition: The element which is lesser than the previous one is the minimum. O(N)
  To do in logN, eliminate the side that is sorted.
  */
 
