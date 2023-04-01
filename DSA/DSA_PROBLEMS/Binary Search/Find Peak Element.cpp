@@ -8,25 +8,19 @@ Intuition is that if that right element to the mid is bigger the that could be t
 class Solution {
 public:
     int findPeakElement(vector<int>& nums) {
-        int left =0;
-        int n=nums.size();
-        int right =n-1;
-        int ans=0;
-        if(nums.size()==1) return 0;
-        if(nums.size()==2) return nums[0]>nums[1]?0:1;
-        while(left<=right)
+        int low = 0;
+        int high = nums.size()-1;
+
+        while(low<high)
         {
-            int mid = (left + right)/2;
-            if(mid-1>=0 and nums[mid-1]>nums[mid])
-                right = mid-1;
-            else if(mid+1<nums.size() and nums[mid+1]>=nums[mid])
-                left = mid+1;
-            else
-                 {
-                ans = mid;
-                break;
-            }
+           int mid = low + (high-low)/2;
+           if(nums[mid]<nums[mid+1])
+           {
+               low = mid+1;
+           }
+           else
+            high = mid;
         }
-        return ans;
+        return high;
     }
 };
