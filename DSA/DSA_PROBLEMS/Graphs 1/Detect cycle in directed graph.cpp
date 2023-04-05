@@ -36,18 +36,15 @@ bool isCycle1(int source)
 {
     
 	 visited_main.insert(source);
-	if(visited_dfs.count(source))
-	{
-	    cout<<source<<endl;
-	    return true;
-	}
-		
 	visited_dfs.insert(source);
 	
 	for(auto i:adj[source])
 		{
-		  if(isCycle1(i))
+		  if(!visited_main.count(i) and isCycle1(i))
 			    return true;
+		else if(visited_dfs.count(source))
+		{
+	    	return true;
 		}
 	visited_dfs.erase(source);
 	return false;
