@@ -42,6 +42,7 @@ void un(int u,int v)
 {
     u = findParent(u);
     v = findParent(v);
+    if(u==v) return; //if parents same, return
     if(r[u]<r[v])
     {
         parent[u]=v;
