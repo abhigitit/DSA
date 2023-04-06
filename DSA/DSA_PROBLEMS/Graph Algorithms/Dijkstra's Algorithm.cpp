@@ -120,6 +120,86 @@ int main()
     return 0;
 }
 
+-----
+    
+#include<bits/stdc++.h>
+using namespace std;
+typedef pair<int,int> P;
+
+class Graph{
+    int V;
+    unordered_map<int,vector<pair<int,int>>> adj;
+    vector<int> dis;
+    
+    public:
+    Graph(int V)
+    {
+        this->V = V;
+        dis.resize(V,1e9);
+    }
+    
+    void addEdge(int v, int w, int cost)
+    {
+        adj[v].push_back({w,cost});
+    }
+    
+    void dijkstra()
+    {
+        priority_queue<P, vector<P>, greater<P>> minHeap;
+        dis[0]=0;
+        minHeap.push({0,0});
+ 
+        while(!minHeap.empty())
+        {
+            
+            auto curr_node_info = minHeap.top();
+            minHeap.pop();
+            
+            int dist = curr_node_info.first;
+            int curr_node = curr_node_info.second;
+            
+            for(auto it: adj[curr_node])
+            {
+                int next_node = it.first;
+                int edgeWeight = it.second;
+                if(dist+edgeWeight < dis[next_node])
+                {
+                    dis[next_node] = dist+edgeWeight;
+                    minHeap.push({dis[next_node], next_node});
+                }
+                   
+                    
+            }
+            
+        }
+        
+        print_shortest();
+    }
+    
+    void print_shortest()
+    {
+        for(int i=0;i<V;++i)
+        {
+            cout<<i<<":"<<dis[i]<<"\n";
+        }
+    }
+};
+
+
+int main()
+{
+    Graph g(5);
+    g.addEdge(0,1,10);
+    g.addEdge(0,2,3);
+    g.addEdge(2,1,4);
+    g.addEdge(1,3,2);
+    g.addEdge(2,3,8);
+    g.addEdge(2,4,2);
+    g.dijkstra();
+    
+    return 0;
+}
+
 
 
 
