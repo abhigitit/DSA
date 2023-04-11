@@ -1,6 +1,6 @@
 /*
 Prims Algorithm : We connect the entire graph in such a way that the total cost on the edges is minimized. Turn the graph into Asylic undirected graph.
-
+Same Kruskals
 N vertices ; N-1 edges in MST
 Multiple valid solutions for MST
 TC : Look Dijkstras
