@@ -1,8 +1,42 @@
 /*
 Arrange even numbers after odd numbers in LL
+Partition List
 
 */
 
+class Solution {
+public:
+    ListNode* partition(ListNode* head, int x) {
+        ListNode* lessDummy = new ListNode();
+        ListNode* greatDummy = new ListNode();
+
+        ListNode* less = lessDummy;
+        ListNode* great = greatDummy;
+
+        while(head)
+        {
+            if(head->val<x)
+            {
+                less->next = head;
+                head= head->next;
+                less = less->next;
+                less->next = nullptr;
+            }
+            else
+
+            {
+                great->next = head;
+                head= head->next;
+                great = great->next;
+                great->next = nullptr;
+            }
+        }
+        less->next = greatDummy->next;
+        return lessDummy->next;
+        
+    }
+};
+___
 
 #include <bits/stdc++.h>
 using namespace std;
