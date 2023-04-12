@@ -35,3 +35,44 @@ public:
         return oldToNew[head];
     }
 };
+__
+    class Solution {
+public:
+    Node* copyRandomList(Node* head) {
+        Node* temp = head;
+        Node* next = head;
+        while(temp)
+        {
+            Node* copy = new Node(temp->val);
+            copy->next = temp->next;
+            temp->next = copy;
+            temp = copy->next;
+        }
+
+        temp = head;
+        while(temp)
+        {
+            if(temp->random)
+                temp->next->random = temp->random->next;
+            temp = temp->next->next;
+        }
+  
+        Node* dummy = new Node(0);
+        Node *copy, *copyIter = dummy;
+        temp = head;
+
+     while (temp != NULL) {
+     next = temp->next->next;
+
+    // extract the copy
+    copy = temp->next;
+    copyIter->next = copy;
+    copyIter = copy;
+
+    // restore the original list
+    temp->next = next;
+    temp = next;
+  }
+return dummy->next;
+    }
+};
