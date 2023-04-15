@@ -3,21 +3,23 @@ Count Good Nodes in Binary Tree
 */
 
 class Solution {
-public:
-    int goodNodes(TreeNode* root) {
-        
-        return helper(root,INT_MIN);
-    }
-    
-    int helper(TreeNode* root,int max_v)
+    int count = 0;
+    void helper(TreeNode* root, int maxe)
     {
         if(!root)
-            return 0;
-        
-        int res = root->val>=max_v ? 1 : 0;
-        max_v = max(root->val,max_v);
-        res+=helper(root->left,max_v);
-        res+=helper(root->right,max_v);
-        return res;
+            return;
+        if(root->val>=maxe)
+        {
+            count++;
+            maxe=root->val;
+        }
+        helper(root->left,maxe);
+        helper(root->right,maxe);
+    }
+public:
+    int goodNodes(TreeNode* root) {
+
+        helper(root,root->val);
+        return count;
     }
 };
