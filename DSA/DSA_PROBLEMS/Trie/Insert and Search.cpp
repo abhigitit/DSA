@@ -1,112 +1,92 @@
 /*
 Trie Insert and Search
-https://drive.google.com/file/d/1w6UpLK6HwkAQcvZ6BaK_DQy09_sf3aE0/view
+https://www.youtube.com/watch?v=dBGUmUQhjaM&list=PLgUwDviBIf0pcIDCZnxhv0LkHf5KzG9zp
 TC for insertion and searching is O(N)
-https://www.youtube.com/watch?v=0k79LqIaHyQ&ab_channel=TECHDOSE
+
+Coding Ninja
 */
 
-#include <bits/stdc++.h>
-using namespace std;
+/*
+    Your Trie object will be instantiated and called as such:
+    Trie* obj = new Trie();
+    obj->insert(word);
+    bool check2 = obj->search(word);
+    bool check3 = obj->startsWith(prefix);
+ */
+struct Node{
+Node* links[26];
+bool flag = false;
 
+bool containsKey(char ch) {
+    return links[ch-'a']!=nullptr;
+}
 
-struct TrieNode{
-    int wc;
-    TrieNode* child[26];
-    char data;
+void put(char ch, Node* node) {
+    links[ch-'a'] = node;
+}
+
+Node* getNext(char ch) {
+    return links[ch-'a'];
+}
+
+bool isEnd()
+{
+    return flag;
+}
+
+void setEnd()
+{
+    flag = true;
+}
 };
 
-TrieNode nodepool[1000];
-TrieNode* root;
-int poolcount;
+class Trie {
+Node* root;
+public:
 
-void init()
-{
-    poolcount=0;
-    root = &nodepool[poolcount++];
-    root->data = '/';
-    for(register int i=0;i<26;++i)
-    {
-        root->child[i]=NULL;
+    /** Initialize your data structure here. */
+    Trie() {
+        root = new Node();
     }
-}
 
-TrieNode* getNode(char c)
-{
-  TrieNode* newnode = &nodepool[poolcount++];
-   for(register int i=0;i<26;++i)
-    {
-        newnode->child[i]=NULL;
-    }
-    newnode->wc = 0;
-    newnode->data = c;
-    return newnode;
-}
+    /** Inserts a word into the trie. */
+    void insert(string word) {
+        Node* node = root;
 
-void insert(string word)
-{
-    TrieNode* curr = root;
-    int index;
-    for(int i=0;i<word.size();++i)
-    {
-         index = word[i]-'a';
-        if(curr->child[index]==NULL)
+        for(int i=0;i<word.size();++i)
         {
-           curr->child[index] = getNode(word[i]); 
+            int ch = word[i];
+            if(!node->containsKey(ch))
+            {
+                node->put(ch, new Node());
+            }
+            node = node->getNext(ch);
         }
-        curr->child[index]->wc +=1;
-        curr = curr->child[index];
+        node->setEnd();
     }
-}
 
-bool search(string word)
-{
-    TrieNode* curr = root;
-    int index;
-    for(int i=0;i<word.size();++i)
-    {
-         index = word[i]-'a';
-        if(curr->child[index]==NULL or curr->child[index]->wc==0)
-        return false;
-        curr=curr->child[index];
-        
+    /** Returns if the word is in the trie. */
+    bool search(string word) {
+        Node* node = root;
+        for(int i=0;i<word.size();++i) {
+            char ch = word[i];
+            if(!node->containsKey(ch))
+                return false;
+            node = node->getNext(ch);
+        }
+        return node->isEnd();
     }
-    return true;
-}
 
-int count_with_prefix(string word)
-{
-    TrieNode* curr = root;
-    int index;
-    for(int i=0;i<word.size();++i)
-    {
-         index = word[i]-'a';
-        if(curr->child[index]==NULL or curr->child[index]->wc==0)
-        return 0;
-        curr=curr->child[index];
-        
+    /** Returns if there is any word in the trie that starts with the given prefix. */
+    bool startsWith(string prefix) {
+         Node* node = root;
+        for(int i=0;i<prefix.size();++i) {
+            char ch = prefix[i];
+            if(!node->containsKey(ch))
+                return false;
+            node = node->getNext(ch);
+        }
+        return true;
+
     }
-    return curr->wc;
-}
-
-
-int main()
-{
-    init();
-    string a = "abhiteja";
-    string b = "abhi";
-    string c = "vineet";
-    string d = "sidhu";
-    string e = "sidha";
-    string f = "vikram";
-    insert(a);
-    insert(b);
-    insert(c);
-    insert(d);
-    insert(e);
-    insert(f);
-cout<<search(b)<<endl;
-cout<<count_with_prefix("sidhu");
-
-
-    return 0;
-}
+};
