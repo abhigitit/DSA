@@ -1,22 +1,29 @@
 /*
 Word Break
 
-Brute Force Intuition : We can check each substring if its there in the dictionary. O(n^2)
-
-We can also check if the dictionary word is part of the string..For every word in dictionary(word size m), we loop through the string to find the first charcater
-that matces(string size n) and if the first character is found, we compare(n). O(n*m*n)
-
-
-Intuition : If we start at index 0, check if dictionary words equal the substring starting from 0, if yes, jump to next the index after 
-the matched substring and solve the subproblem.
-
-if we reach end of the string, we return true.
-
-dp[sizeof_string]=true
-Bottom up approach
+Parition at those points that create a word present in dictionary.
+https://www.youtube.com/watch?v=th4OnoGasMU
 
 
 
+*/
 
+class Solution {
+    map<int,bool> dp;
+    bool helper(string s,int idx,set<string>& st) {
+        if(idx==s.size()) return true;
+        if(dp.count(idx)) return dp[idx];
+        for(int i=idx;i<s.size();++i) {
+            if(st.count(s.substr(idx,i-idx+1)) and helper(s,i+1,st))
+                return dp[idx]=true;
+        }
+        return dp[idx]=false;
+    }
+public:
+    bool wordBreak(string s, vector<string>& wordDict) {
+        set<string> st(wordDict.begin(),wordDict.end());
+        return helper(s,0,st);
+    }
+};
 
 
