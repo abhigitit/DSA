@@ -4,6 +4,17 @@ https://www.youtube.com/watch?v=ey7DYc9OANo&ab_channel=Vivekanand-AlgorithmEvery
 
 */
 
+DP:
+int ans = INT_MIN;
+int height(TreeNode* root) {
+    if(!root) return 0;
+    int lft = height(root->left);
+    int rgt = height(root->right);
+    ans = max( ans , 1+lft+rgt);//add this line while calculating height
+    return lft>rgt ?1+lft : 1+rgt;
+    
+}
+___________
 class Solution {
 public:
     int diameterOfBinaryTree(TreeNode* root) {
